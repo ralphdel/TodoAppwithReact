@@ -1,6 +1,8 @@
+import Todoitems from "./Todoitems";
+
+const Todolist = ({ Mylist, deletetodo, edittodo }) => {
 
 
-const Todolist = ({ Mylist, deletetask, edittask }) => {
   return (
     <>
       <div>
@@ -12,18 +14,24 @@ const Todolist = ({ Mylist, deletetask, edittask }) => {
             {Mylist.map((Eachtask) => {
               return (
                 <>
-                  <div >
-                    <li key={Eachtask.id} >{Eachtask.taskname} </li>
-                    <button>Edit Task</button>
-                    <button>Delete Task</button>
-                  </div>
+                  <Todoitems
+                  taskname={Eachtask.taskname}
+                  id={Eachtask.id}
+                  key={Eachtask.id}
+                  deletetask={deletetodo}
+                  
+                  />
                 </>
+                
               );
             })}
+            
           </ol>
         </div>
       </div>
+    
     </>
+    
   );
 };
 
